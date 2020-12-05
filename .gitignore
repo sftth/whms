@@ -16,6 +16,6 @@ buildNumber.properties
 .DS_Store
 
 application-oauth.properties
-application-real-db.properties
-application-local.properties
 
+/src/main/resources/application-local-db.properties
+/src/main/resources/application-real-db.properties
