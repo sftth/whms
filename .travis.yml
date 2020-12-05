@@ -8,6 +8,7 @@ before_install:
 branches:
   only:
     - dev-v1
+    - dev-v2
 
 # Travis CI 서버의 Home
 cache:
