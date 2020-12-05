@@ -14,7 +14,7 @@ cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.mvnw'
-script: "./mvnw clean package"
+script: "mvn clean package"
 
 notifications:
   email:
