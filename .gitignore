@@ -15,4 +15,6 @@ buildNumber.properties
 .idea/
 .DS_Store
 
+application.properties
+application-dev.properties
 application-oauth.properties
