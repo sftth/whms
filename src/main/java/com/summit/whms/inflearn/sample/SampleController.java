@@ -10,8 +10,17 @@ public class SampleController {
     @Autowired
     private SampleService sampleService;
 
+    @Autowired
+    private LessonService lessonService;
+
+
     @GetMapping("/sample/hello")
     public String hello() {
         return "hello " + sampleService.getName();
+    }
+
+    @GetMapping("/get/hello")
+    public String getHello() {
+        return "hello " + lessonService.getName();
     }
 }

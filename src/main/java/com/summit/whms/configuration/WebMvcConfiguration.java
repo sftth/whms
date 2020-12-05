@@ -10,19 +10,18 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebMvcConfiguration implements WebMvcConfigurer {
     @Autowired
-    @Qualifier(value = "loginInterceptor")
+    @Qualifier(value = "sessionInterceptor")
     private HandlerInterceptor interceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(interceptor)
-                .addPathPatterns("/**")
-                .excludePathPatterns("/hi")
-                .excludePathPatterns("/signIn/**")
-                .excludePathPatterns("/signInProcess/**")
-                .excludePathPatterns("/css/**")
-                .excludePathPatterns("/js/**")
-                .excludePathPatterns("/error/**")
-                .excludePathPatterns("/sample/**");
+                .excludePathPatterns("/**");
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/mains/**")
+//                .excludePathPatterns("/css/**")
+//                .excludePathPatterns("/js/**")
+//                .excludePathPatterns("/error/**")
+//                .excludePathPatterns("/sample/**");
     }
 }

@@ -1,7 +1,6 @@
 package com.summit.whms.intercepter;
 
 import com.summit.whms.core.session.SessionManager;
-import com.summit.whms.core.session.SessionModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -12,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @Component
-public class LoginInterceptor extends HandlerInterceptorAdapter {
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoginInterceptor.class);
+public class SessionInterceptor extends HandlerInterceptorAdapter {
+    private static final Logger LOGGER = LoggerFactory.getLogger(SessionInterceptor.class);
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -22,10 +21,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
             LOGGER.info("Request URL \t: " + request.getRequestURI());
         }
 
-        SessionModel sessionModel = SessionManager.getUserInfo(request);
+        boolean isSignIn = SessionManager.isSignIn(request);
 
-        if(null == sessionModel) {
-            response.sendRedirect("/signIn");
+        if(!isSignIn) {
+            response.sendRedirect("/main/main");
             return false;
         }
 

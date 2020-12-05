@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<script src="/js/jquery-3.3.1.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+</head>
+<body>
+    <h1>Sign Up is success. :)</h1>
+    <h1> Main 화면으로 이동하기</h1>
+    <form id="moveForm">
+        <button type="submit">Main</button>
+    </form>
+</body>
+</html>
+
+<script type="text/javascript">
+    $("#moveForm").submit(function (){
+        console.log("==form-move submit event is occured.")
+        $("#moveForm").attr('action','/contents/main')
+        $("#moveForm")/attr('method','GET')
+        $("#moveForm").submit()
+    })
+</script>

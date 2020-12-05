@@ -1,0 +1,33 @@
+{{>layout/header}}
+{{>layout/navi}}
+<h1> Work Lists </h1>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/contents/works/save" role="button" class="btn btn-primary"> Registration </a>
+        </div>
+    </div>
+    <br>
+    <!-- Content List -->
+    <table class="table table-horizontal table-bordered">
+        <thead class="thead-strong">
+            <tr>
+                <th> Number </th>
+                <th> Title </th>
+                <th> Author </th>
+                <th> Laste Update </th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#posts}}
+            <tr>
+                <td>{{id}}</td>
+                <td><a href="/contents/works/update/{{id}}">{{title}}</a></td>
+                <td>{{author}}</td>
+                <td>{{modifiedDate}}</td>
+            </tr>
+        {{/posts}}
+        </tbody>
+    </table>
+</div>
+{{>layout/footer}}

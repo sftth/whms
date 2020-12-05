@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a href="/main" class="navbar-brand">Whms</a>
+        <div class="collapse navbar-collapse" id="globalNavbar">
+            {{#userName}}
+            <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
+                Hello <span id="user">{{userName}}</span>
+                <li class="nav-item">
+                    <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+                </li>
+            </ul>
+            {{/userName}}
+
+            {{^userName}}
+            <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="/main/signIn2">Sign In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/main/signUp2">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/oauth2/authorization/google" role="button" class="btn btn-success active" id="btn-signin">Google Login</a>
+                </li>
+            </ul>
+            {{/userName}}
+        </div>
+    </div>
+</nav>

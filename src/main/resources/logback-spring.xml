@@ -17,7 +17,7 @@
 
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <Pattern>%d{yyyy-MM-dd HH:mm:ss}:%-3relative][%thread] %-5level %logger{35} - %msg%n</Pattern>
+            <Pattern>[%20d{yyyy-MM-dd HH:mm:ss}: %4relative][%8thread] %highlight(%5level) %cyan(%logger{35}) - %highlight(%msg%n)</Pattern>
         </layout>
     </appender>
 

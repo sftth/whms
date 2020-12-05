@@ -11,16 +11,16 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
-@WebMvcTest(UserController.class)
+//@RunWith(SpringRunner.class)
+//@WebMvcTest(UserController.class)
 public class UserControllerTest {
     @Autowired
     MockMvc mocMvc;
 
-    @Test
-    public void hello() throws Exception{
-        mocMvc.perform(get("/sample/users"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("hello"));
-    }
+//    @Test
+//    public void hello() throws Exception{
+//        mocMvc.perform(get("/sample/users"))
+//                .andExpect(status().isOk())
+//                .andExpect(content().string("hello"));
+//    }
 }

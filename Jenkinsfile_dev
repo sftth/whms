@@ -1,39 +1,39 @@
 pipeline {
 	agent any
-	
-	parameters {
-		string(name: 'appName' , defaultValue: 'whms' , description: 'Application Name')
-        string(name: 'appVersion' , defaultValue: '1.0' , description: 'Application Version')
-		string(name: 'devServerIP' , defaultValue: '34.84.197.151' , description: 'Dev WEB Server')
-		string(name: 'deployDir' , defaultValue: '/sorc001/sftth318/application/', description: 'App deploy Server')
-	}
-	
-	triggers {
-		pollSCM('* * * * *')
-	}
 
 	stages {
-		stage('Build') {
-			steps {
-				echo '========================1. Maven Build ====================='
-				sh '/sorc001/appadm/ciserv/maven/bin/mvn clean package -Pdev'
-			}
-		}
-		stage('Deploy'){
-			parallel{
-				stage('Deploy App'){
-					steps{
-						echo '====================5.1 Deploy Dev Server========================='
-						sh "ssh sftth318@${params.devServerIP} rm -rf ${params.deployDir}*"
-						sh "scp ./target/${params.appName}-${params.appVersion}.jar sftth318@${params.devServerIP}:${params.deployDir}"
-					}
-				}
-				stage('Restart App'){
-				    steps{
-						sh "ssh  sftth318@${params.apache_dev}/engn001/apache/2.4/servers/webd-ist_80/restart.sh"
-				    }
-				}
-			}
-		}
+		stage("Git Checkout") {
+            steps {
+                echo '========================1. Git Checkout ====================='
+                checkout scm
+            }
+		} // Git Checkout
+        stage('mvn Build') {
+            steps {
+                echo '========================2. Maven Build ====================='
+                sh " chmod +x ./mvnw"
+                sh "./mvnw clean package -Pdev"
+            }
+        } // Maven Build
+        stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('sonarqube') {
+                    sh './mvnw sonar:sonar'
+                }
+            }
+        }
+        stage('SonarQube Quality Gate') {
+            steps {
+                timeout(time:30, unit:'MINUTES') {
+                    waitForQualityGate abortPipeline:true
+                }
+            }
+        }
+	}
+
+	post{
+	    always{
+	        junit '**/target/surefire-reports/TEST-*.xml'
+	    }
 	}
 }

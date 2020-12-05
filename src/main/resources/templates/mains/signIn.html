@@ -3,6 +3,7 @@
 <script src="/js/jquery-3.3.1.min.js"></script>
 
 <head>
+    <title>signIn</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -43,7 +44,7 @@
         }
     </style>
     <!-- Custom styles for this template -->
-    <link href="css/docs/4.4/floating-labels.css" rel="stylesheet">
+    <link href="/css/docs/4.4/floating-labels.css" rel="stylesheet">
 </head>
 <body>
 <form class="form-signin" id="signinForm">
@@ -75,9 +76,9 @@
 
 <script type="text/javascript">
     $("#signinForm").submit(function() {
-        console.log("== form-signin submit event is started.");
-        $("#signinForm").attr('action', '/signInProcess');
-        $("#signinForm").attr('method','POST');
+        console.log("== form-signin submit event is started.")
+        $("#signinForm").attr('action', '/main/signInProcess')
+        $("#signinForm").attr('method','POST')
     })
 </script>
 </html>

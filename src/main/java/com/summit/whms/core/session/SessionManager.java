@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 public class SessionManager {
     private static final Logger LOGGER = LoggerFactory.getLogger(SessionManager.class);
+    private static final int EMPTY_STR_LENGTH = 0;
 
     public static void setNewSessionData(HttpServletRequest request, SessionModel model) throws Exception {
         LOGGER.debug("setNewSessionData is Started");
@@ -36,13 +37,14 @@ public class SessionManager {
             model.setUserIp(request.getHeader("NS-CLIENT-IP"));
             return model;
         } else {
-            return null;
+            return new SessionModel();
         }
     }
 
     public static boolean isSignIn(HttpServletRequest request) {
         try {
-            if(getUserInfo(request) == null || getUserInfo(request).getUserIp().length() < 1) {
+            String userId = getUserInfo(request).getUserId();
+            if(userId.length() <= EMPTY_STR_LENGTH) {
                 return false;
             }
         } catch(Exception e) {

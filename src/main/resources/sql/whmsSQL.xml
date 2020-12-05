@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.summit.whms.mapper.WhmsMapper">
+    <select id="selectUserInfo" resultType="com.summit.whms.main.UserModel">
+        SELECT name, email, passwd
+        FROM users
+        WHERE email = #{email};
+    </select>
+
+    <insert id="insertUserInfo" parameterType="com.summit.whms.main.UserModel">
+        INSERT INTO users (name,email,passwd)
+        VALUES(#{inputName},#{inputEmail},#{inputPassword});
+    </insert>
+</mapper>

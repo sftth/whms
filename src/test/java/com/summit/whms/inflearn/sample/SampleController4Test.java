@@ -1,40 +1,38 @@
 package com.summit.whms.inflearn.sample;
 
 import org.junit.Test;
-
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment =  SpringBootTest.WebEnvironment.MOCK)
-@ActiveProfiles("test")
-@AutoConfigureMockMvc
-public class SampleControllerTest1 {
-    /**
-     * MockMvc 활용 예제
-     * @AutoConfigureMockMvc 추가 필요
-     *
-     */
+//@RunWith(SpringRunner.class)
+//@ActiveProfiles("test")
+//@WebMvcTest(SampleController.class) //slice test용으로 딱 원하는 컨트롤러만 테스트
+public class SampleController4Test {
+    @MockBean
+    SampleServiceImpl mockSampleService;
+
     @Autowired
     MockMvc mockMvc;
 
-    @Test
+//    @Test
     public void hello() throws Exception {
+        when(mockSampleService.getName()).thenReturn("Jacob");
+
         mockMvc.perform(get("/sample/hello"))
-                .andExpect(status().isOk()) //서비스 상태가 200(정상상태)이고
-                .andExpect(content().string("hello Jacob")) //요청에 대한 결과 컨텐츠
-                .andDo(print()); //요청 출력
-        // 어떤 컨트롤러의 어떤 메소드를 호출했는지도 확인 가능
+                .andExpect(status().isOk())
+                .andExpect(content().string("hello Jacob"))
+                .andDo(print());
     }
 
 }

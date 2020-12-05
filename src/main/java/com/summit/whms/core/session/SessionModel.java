@@ -21,6 +21,11 @@ public class SessionModel implements Serializable {
     @Getter @Setter
     private String userIp ;
 
+    public SessionModel (){
+        userId = "";
+        userIp = "";
+    }
+
     @Override
     public String toString() {
         return "SessionModel [" +
