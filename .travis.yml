@@ -1,0 +1,19 @@
+language: java
+jdk:
+  - openjdk15
+
+branches:
+  only:
+    - dev-v1
+
+# Travis CI 서버의 Home
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.mvnw'
+script: "./mvnw clean package"
+
+notifications:
+  email:
+    recipients:
+      - sftth@naver.com
