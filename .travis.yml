@@ -12,9 +12,9 @@ branches:
 # Travis CI 서버의 Home
 cache:
   directories:
-    - '$HOME/.m2/repository'
-    - '$HOME/.mvnw'
-script: "mvn clean package"
+    - '$HOME/.m2'
+
+script: "mvn clean install"
 
 notifications:
   email:
