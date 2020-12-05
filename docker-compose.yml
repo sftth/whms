@@ -1,0 +1,29 @@
+version: '3.1'
+services:
+  mariadb:
+    container_name: whms-mariadb
+    image: mariadb:latest
+    ports:
+      - 3306:3306
+    volumes:
+      - /engn001/docker/mariadb/data:/var/lib/mysql
+      - /engn001/docker/mariadb/config:/etc/mysql/conf.d
+    environment:
+      MYSQL_DATABASE: sensing
+      MYSQL_ROOT_PASSWORD: passwd
+      MYSQL_USER: sftth
+      MYSQL_PASSWORD: 1q2w3e4r%
+      TZ: Asia/Seoul
+    restart: always
+  redis-master:
+    container_name: whms-redis-master
+    image: redis:latest
+    ports:
+      - 6379:6379
+    environment:
+      - REQUIREPASS=passwd
+      - CLIENTHOST=127.0.0.1
+      - CLIENTPORT=6379
+    volumes:
+      - /engn001/docker/redis/redis1:/data
+    restart: always

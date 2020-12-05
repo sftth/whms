@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" monitorInterval="5">
+    <Properties>
+        <Property name="LOG_FORMAT">%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %m%n</Property>
+        <Property name="BASE_DIR">/Users/Summit/IDE/logs</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="consoleAppender" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_FORMAT}"/>
+        </Console>
+
+        <RollingFile name="appFileAppender" fileName="${BASE_DIR}/app.log" filePattern="${BASE_DIR}/app.%d{yyyyMMdd}.log">
+            <PatternLayout pattern="${LOG_FORMAT}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${BASE_DIR}">
+                    <IfFileName glob="*.log" />
+                    <IfLastModified age="5d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+
+        <RollingFile name="errFileAppender" fileName="${BASE_DIR}/err.log" filePattern="${BASE_DIR}/err.%d{yyyyMMdd}.log">
+            <PatternLayout pattern="${LOG_FORMAT}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${BASE_DIR}">
+                    <IfFileName glob="*.log" />
+                    <IfLastModified age="5d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.summit.whms" level="info" additivity="false">
+            <AppenderRef ref="consoleAppender"/>
+            <AppenderRef ref="appFileAppender" />
+        </Logger>
+        <Logger name="com.summit.whms" level="error" additivity="false">
+            <AppenderRef ref="consoleAppender"/>
+            <AppenderRef ref="errFileAppender" />
+        </Logger>
+        <Root level="debug">
+            <AppenderRef ref="consoleAppender"/>
+            <AppenderRef ref="appFileAppender" />
+        </Root>
+    </Loggers>
+</Configuration>
