@@ -18,9 +18,10 @@ cache:
 script: "./mvnw clean install"
 
 before_deploy:
-  - zip -r whms *
+#  - zip -r whms *
   - mkdir -p deploy
-  - mv whms.zip deploy/whms.zip
+#  - mv whms.zip deploy/whms.zip
+  - mv whms/target/whms-1.0.0.jar deploy/
 
 deploy:
   - provider: s3
