@@ -45,6 +45,8 @@ deploy:
     deployment_group: whms
     region: ap-northeast-2
     wait-until-deployed: true
+    on:
+      all_branches: true
 
 notifications:
   email:
