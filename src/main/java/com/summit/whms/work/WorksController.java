@@ -2,8 +2,6 @@ package com.summit.whms.work;
 
 import com.summit.whms.config.auth.LoginUser;
 import com.summit.whms.config.auth.dto.SessionUser;
-import com.summit.whms.core.session.SessionManager;
-import com.summit.whms.core.session.SessionModel;
 
 import com.summit.whms.work.dto.WorksResponseDto;
 import com.summit.whms.work.service.WorksService;
@@ -24,15 +22,6 @@ public class WorksController {
     @Autowired
     private WorksService worksService;
 
-    @GetMapping("/works/workInfo")
-    public String workInfoView(HttpServletRequest request, Model model) throws Exception {
-        SessionModel sessionModel = SessionManager.getUserInfo(request);
-        if(sessionModel.getUserId() != null) {
-            return "/works/workInfo";
-        } else {
-            return "/main/signIn2";
-        }
-    }
 
     @GetMapping("/contents/works")
     public String worksView(Model model,@LoginUser SessionUser user) {
@@ -40,20 +29,28 @@ public class WorksController {
             model.addAttribute("userName", user.getName());
         }
         model.addAttribute("posts", worksService.findAllDesc());
-        return "/contents/works";
+        return "contents/works";
     }
 
     @GetMapping("/contents/works/save")
-    public String worksRegistration() {
-        return "/contents/works-save";
+    public String worksRegistration(Model model,@LoginUser SessionUser user) {
+        if(user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        LOGGER.info("works-save is called.");
+
+        return "contents/works-save";
     }
 
     @GetMapping("/contents/works/update/{id}")
-    public String worksUpdate(@PathVariable Long id, Model model) {
+    public String worksUpdate(@PathVariable Long id, Model model,@LoginUser SessionUser user) {
+        if(user != null) {
+            model.addAttribute("userName", user.getName());
+        }
         WorksResponseDto dto = worksService.findById(id);
         model.addAttribute("post", dto);
 
-        return "/contents/works-update";
+        return "contents/works-update";
     }
 
 }

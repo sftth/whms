@@ -1,8 +1,6 @@
 package com.summit.whms.work;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.gargoylesoftware.htmlunit.HttpHeader;
-import com.summit.whms.core.session.SessionModel;
 import com.summit.whms.work.domain.posts.Works;
 import com.summit.whms.work.domain.posts.WorksRepository;
 import com.summit.whms.work.dto.WorksSaveRequestDto;

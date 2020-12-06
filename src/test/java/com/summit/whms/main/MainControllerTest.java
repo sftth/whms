@@ -1,6 +1,5 @@
 package com.summit.whms.main;
 
-import com.summit.whms.core.session.SessionModel;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +34,7 @@ public class MainControllerTest {
         mockMvc.perform(get(url))
 //                .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(view().name("/mains/signIn2"))
+                .andExpect(view().name("main/signIn2"))
                 .andExpect(content().string(containsString("Sign In")));
 
     }

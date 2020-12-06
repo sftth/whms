@@ -55,14 +55,14 @@ public class SignUpControllerTest {
         usersRepository.deleteAll();
     }
 
-    @Test
-    public void mainViewTest() throws Exception{
-        //when
-        String page = this.testRestTemplate.getForObject("/main", String.class);
-
-        //then
-        assertThat(page).contains("Whms");
-    }
+//    @Test
+//    public void mainViewTest() throws Exception{
+//        //when
+//        String page = this.testRestTemplate.getForObject("/main", String.class);
+//
+//        //then
+//        assertThat(page).contains("Whms");
+//    }
 
     @Test
     public void signUpViewTest() {

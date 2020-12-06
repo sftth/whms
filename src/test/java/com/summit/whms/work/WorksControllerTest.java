@@ -1,6 +1,5 @@
 package com.summit.whms.work;
 
-import com.summit.whms.core.session.SessionModel;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,38 +26,16 @@ public class WorksControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private MockHttpSession mockHttpSession;
-
-    @Before
-    public void setUp() throws Exception{
-        SessionModel sessionModel = new SessionModel();
-        sessionModel.setUserId("tester");
-        mockHttpSession.setAttribute(SessionModel.SESSION_NAME, sessionModel);
-    }
-
-//    @Test
-//    public void studyInfoGetMappingTest() throws Exception {
-//        String url ="works/studyInfo";
-//
-//        mockMvc.perform(get("/works/studyInfo")
-//                .session(mockHttpSession))
-////                .andDo(print())
-//                .andExpect(status().isOk())
-//                .andExpect(view().name("works/studyInfo"))
-//                .andExpect(content().string(containsString("Hello Study Info Page.")));
-//    }
 
     @Test
     @WithMockUser(roles = "USER")
     public void worksViewTest() throws Exception {
         String url = "/contents/works";
 
-        mockMvc.perform(get(url)
-                .session(mockHttpSession))
-//                .andDo(print())
+        mockMvc.perform(get(url))
+                .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(view().name("/contents/works"))
+                .andExpect(view().name("contents/works"))
                 .andExpect(content().string(containsString("Work Lists")));
 
     }

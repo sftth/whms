@@ -7,11 +7,5 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 public interface MainService {
-    public String getStudyInfo();
-
-    public UserModel getUserInfo(String email);
-
-    public void insertUserInfo(UserModel userModel);
-
     public String save(UserSignUpRequestDto requestDto);
 }

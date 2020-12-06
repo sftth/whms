@@ -1,7 +1,5 @@
 package com.summit.whms.main;
 
-import com.summit.whms.core.session.SessionManager;
-import com.summit.whms.core.session.SessionModel;
 import com.summit.whms.main.dto.MainResponseDto;
 import com.summit.whms.main.dto.UserSignUpRequestDto;
 import com.summit.whms.main.service.MainService;
@@ -39,24 +37,4 @@ public class MainRestController {
         }
         return null;
     }
-
-    @PostMapping("/main/api/v1/signin")
-    public void signin(@RequestBody UserSignUpRequestDto requestDto, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        try {
-            LOGGER.info("Called signInProcess.");
-            if (null == requestDto.getEmail()) {
-                response.sendRedirect("/main/signIn2");
-            } else if (null == requestDto.getPasswd()) {
-                response.sendRedirect("/main/signIn2");
-            } else {
-                SessionModel sessionModel = SessionManager.getUserInfo(request);
-                sessionModel.setUserId(requestDto.getEmail());
-                SessionManager.setNewSessionData(request, sessionModel);
-                LOGGER.info("=====session 설정 결과 User ID: " + sessionModel.getUserId());
-            }
-        } catch (Exception e) {
-            LOGGER.error("signIn is Failed.");
-        }
-    }
-
 }
