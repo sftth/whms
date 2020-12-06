@@ -19,7 +19,7 @@ var signin = {
             data: JSON.stringify(data)
         }).done(function (){
             console.log("signin is done.");
-            window.location.href = '/contents/main';
+            window.location.href = '/main/contents';
         }).fail(function (e){
            alert(JSON.stringify(e));
         });

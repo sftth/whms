@@ -17,7 +17,7 @@ public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver 
     private final HttpSession httpSession;
 
     @Override
-    public boolean supportsParameter(MethodParameter methodParameter) { //@LoginUser 어노테이션과 SessionUder 인 경우 true 반환
+    public boolean supportsParameter(MethodParameter methodParameter) { //@LoginUser 어노테이션과 SessionUser 인 경우 true 반환
         boolean isLoginUserAnnotation = methodParameter.getParameterAnnotation(LoginUser.class) != null;
         boolean isUserClass = SessionUser.class.equals(methodParameter.getParameterType());
 
