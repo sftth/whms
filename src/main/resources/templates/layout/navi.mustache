@@ -1,18 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a href="/main/index" class="navbar-brand">Whms</a>
-        <div class="collapse navbar-collapse" id="globalNavbar">
+        <a href="/main" class="navbar-brand">Whms</a>
+        <div class="d-flex ml-auto">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#globalNavbar" aria-controls="globalNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse" id="globalNavbar">
             {{#userName}}
-            <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
-                Hello <span id="user">{{userName}}</span>
+            <ul class="navbar-nav mr-auto order-1">
+                <li class="nav-item">
+                    <a href="/main/contents" class="nav-link">contents</a>
+                </li>
                 <li class="nav-item">
                     <a href="/logout" class="btn btn-info active" role="button">Logout</a>
                 </li>
+                Hello <span id="user">{{userName}}</span>
             </ul>
             {{/userName}}
 
             {{^userName}}
-            <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
+            <ul class="navbar-nav mr-auto order-1">
                 <li class="nav-item">
                     <a class="nav-link" href="/main/signIn2">Sign In</a>
                 </li>
