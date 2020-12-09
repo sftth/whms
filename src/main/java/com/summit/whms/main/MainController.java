@@ -35,6 +35,7 @@ public class MainController {
         LOGGER.info("called / ");
         if(user != null) {
             model.addAttribute("userName", user.getName());
+            model.addAttribute("picture", user.getPicture());
         }
         return "main/index";
     }
@@ -44,6 +45,7 @@ public class MainController {
         LOGGER.info("mainView is called");
         if(user != null) {
             model.addAttribute("userName", user.getName());
+            model.addAttribute("picture", user.getPicture());
         }
         return "main/index" ;
     }
@@ -86,6 +88,7 @@ public class MainController {
 
         if(user != null) {
             model.addAttribute("userName", user.getName());
+            model.addAttribute("picture", user.getPicture());
         }
 
         return "contents/main";

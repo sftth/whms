@@ -10,17 +10,34 @@
             {{#userName}}
             <ul class="navbar-nav mr-auto order-1">
                 <li class="nav-item">
-                    <a href="/main/contents" class="nav-link">contents</a>
+                    <a href="/main/contents" class="nav-link">Contents</a>
                 </li>
-                <li class="nav-item">
-                    <a href="/logout" class="btn btn-info active" role="button">Logout</a>
+            </ul>
+            <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
+                <li class="nav-item dropdown">
+                    <a class="nav-link nav-link--user dropdown-toggle" id="navbarDropdownMenuLink" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+<!--                        <div class="nav-link--user__initials">{{userName}}</div>-->
+                        <div class="nav-link--user__img"><img src="{{picture}}"/></div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarCustomerDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Account</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/logout">Log out</a>
+                    </div>
                 </li>
-                Hello <span id="user">{{userName}}</span>
+<!--                <li class="nav-item">-->
+<!--                    <a href="/logout" class="btn btn-info active" role="button">Logout</a>-->
+<!--                </li>-->
             </ul>
             {{/userName}}
 
             {{^userName}}
             <ul class="navbar-nav mr-auto order-1">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Temp</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav d-none d-lg-flex ml-2 order-3">
                 <li class="nav-item">
                     <a class="nav-link" href="/main/signIn2">Sign In</a>
                 </li>
