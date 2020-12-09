@@ -1,0 +1,54 @@
+------
+[2020-12-10 00:37:20.141] [d-3WYM4Y067]LifecycleEvent - AfterInstall
+[2020-12-10 00:37:20.141] [d-3WYM4Y067]Script - stop.sh
+[2020-12-10 00:37:20.197] [d-3WYM4Y067][stdout]> 8082 에서 구동 중인 애플리케이션 pid  확인
+[2020-12-10 00:37:20.241] [d-3WYM4Y067][stdout]> 현재 구동 중인 애플리케이션이 없으므로 종료하지 않습니다.
+[2020-12-10 00:37:21.454] [d-3WYM4Y067]LifecycleEvent - ApplicationStart
+[2020-12-10 00:37:21.455] [d-3WYM4Y067]Script - start.sh
+[2020-12-10 00:37:21.469] [d-3WYM4Y067][stdout]> Build 파일 복사
+[2020-12-10 00:37:21.469] [d-3WYM4Y067][stdout]> cp /home/ec2-user/app/step3/zip/*.jar /home/ec2-user/app/step3
+[2020-12-10 00:37:21.469] [d-3WYM4Y067][stdout]> 새 애플리케이션 배포
+[2020-12-10 00:37:21.471] [d-3WYM4Y067][stderr]ls: cannot access /*.jar: No such file or directory
+[2020-12-10 00:37:21.472] [d-3WYM4Y067][stdout]> JAR Name:
+[2020-12-10 00:37:21.472] [d-3WYM4Y067][stdout]>  에 실행권한 추가
+[2020-12-10 00:37:21.473] [d-3WYM4Y067][stderr]chmod: missing operand after ‘+x’
+[2020-12-10 00:37:21.473] [d-3WYM4Y067][stderr]Try 'chmod --help' for more information.
+[2020-12-10 00:37:21.473] [d-3WYM4Y067][stdout]>  실행
+[2020-12-10 00:37:21.477] [d-3WYM4Y067][stderr]/opt/codedeploy-agent/deployment-root/e163affa-1748-4697-bfaf-17a01b29c56a/d-3WYM4Y067/deployment-archive/start.sh: line 25: /nohup.out: Permission denied
+[2020-12-10 00:37:22.399] [d-3WYM4Y067]LifecycleEvent - ValidateService
+[2020-12-10 00:37:22.399] [d-3WYM4Y067]Script - health.sh
+[2020-12-10 00:37:22.447] [d-3WYM4Y067][stdout]> Health Check Start!
+[2020-12-10 00:37:22.447] [d-3WYM4Y067][stdout]> IDLE_PORT: 8082
+[2020-12-10 00:37:22.447] [d-3WYM4Y067][stdout]> curl -s http://localhost:8082/profile
+[2020-12-10 00:37:27.460] [d-3WYM4Y067][stdout]> Health check의 응답을 알 수 없거나 실행 상태가 아님
+[2020-12-10 00:37:27.460] [d-3WYM4Y067][stdout]> Health check:
+[2020-12-10 00:37:27.460] [d-3WYM4Y067][stdout]> Health check 연결 실패. 재시도...
+[2020-12-10 00:37:32.473] [d-3WYM4Y067][stdout]> Health check의 응답을 알 수 없거나 실행 상태가 아님
+[2020-12-10 00:37:32.473] [d-3WYM4Y067][stdout]> Health check:
+[2020-12-10 00:37:32.473] [d-3WYM4Y067][stdout]> Health check 연결 실패. 재시도...
+[2020-12-10 00:37:37.487] [d-3WYM4Y067][stdout]> Health check의 응답을 알 수 없거나 실행 상태가 아님
+[2020-12-10 00:37:37.487] [d-3WYM4Y067][stdout]> Health check:
+[2020-12-10 00:37:37.487] [d-3WYM4Y067][stdout]> Health check 연결 실패. 재시도...
+[2020-12-10 00:37:42.500] [d-3WYM4Y067][stdout]> Health check의 응답을 알 수 없거나 실행 상태가 아님
+[2020-12-10 00:37:42.500] [d-3WYM4Y067][stdout]> Health check:
+[2020-12-10 00:37:42.500] [d-3WYM4Y067][stdout]> Health check 연결 실패. 재시도...
+[2020-12-10 00:37:47.514] [d-3WYM4Y067][stdout]> Health check의 응답을 알 수 없거나 실행 상태가 아님
+[2020-12-10 00:37:47.514] [d-3WYM4Y067][stdout]> Health check:
+[2020-12-10 00:37:47.514] [d-3WYM4Y067][stdout]> Health check 연결 실패. 재시도...
+[2020-12-10 00:37:52.527] [d-3WYM4Y067][stdout]> Health check의 응답을 알 수 없거나 실행 상태가 아님
+[2020-12-10 00:37:52.527] [d-3WYM4Y067][stdout]> Health check:
+[2020-12-10 00:37:52.527] [d-3WYM4Y067][stdout]> Health check 연결 실패. 재시도...
+[2020-12-10 00:37:57.541] [d-3WYM4Y067][stdout]> Health check의 응답을 알 수 없거나 실행 상태가 아님
+[2020-12-10 00:37:57.541] [d-3WYM4Y067][stdout]> Health check:
+[2020-12-10 00:37:57.541] [d-3WYM4Y067][stdout]> Health check 연결 실패. 재시도...
+[2020-12-10 00:38:02.554] [d-3WYM4Y067][stdout]> Health check의 응답을 알 수 없거나 실행 상태가 아님
+[2020-12-10 00:38:02.554] [d-3WYM4Y067][stdout]> Health check:
+[2020-12-10 00:38:02.554] [d-3WYM4Y067][stdout]> Health check 연결 실패. 재시도...
+[2020-12-10 00:38:07.568] [d-3WYM4Y067][stdout]> Health check의 응답을 알 수 없거나 실행 상태가 아님
+[2020-12-10 00:38:07.568] [d-3WYM4Y067][stdout]> Health check:
+[2020-12-10 00:38:07.568] [d-3WYM4Y067][stdout]> Health check 연결 실패. 재시도...
+[2020-12-10 00:38:12.581] [d-3WYM4Y067][stdout]> Health check의 응답을 알 수 없거나 실행 상태가 아님
+[2020-12-10 00:38:12.581] [d-3WYM4Y067][stdout]> Health check:
+[2020-12-10 00:38:12.581] [d-3WYM4Y067][stdout]> Health check 실패.
+[2020-12-10 00:38:12.581] [d-3WYM4Y067][stdout]> nginx에 연결하지 않고 배포를 종료합니다.
+
