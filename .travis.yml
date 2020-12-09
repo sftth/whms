@@ -22,7 +22,7 @@ before_deploy:
 #  - mkdir -p deploy
 #  - mv whms.zip deploy/whms.zip
   - mkdir -p before_deploy
-  - cp deploy.sh before_deploy/
+  - cp script/*.sh before_deploy/
   - cp appspec.yml before_deploy/
   - cp target/whms-1.0.0.jar before_deploy/
   - cd before_deploy && zip -r before_deploy *
