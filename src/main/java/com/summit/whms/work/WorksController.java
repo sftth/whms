@@ -27,6 +27,7 @@ public class WorksController {
     public String worksView(Model model,@LoginUser SessionUser user) {
         if(user != null) {
             model.addAttribute("userName", user.getName());
+            model.addAttribute("picture", user.getPicture());
         }
         model.addAttribute("posts", worksService.findAllDesc());
         return "contents/works";
@@ -36,6 +37,7 @@ public class WorksController {
     public String worksRegistration(Model model,@LoginUser SessionUser user) {
         if(user != null) {
             model.addAttribute("userName", user.getName());
+            model.addAttribute("picture", user.getPicture());
         }
         LOGGER.info("works-save is called.");
 
@@ -46,6 +48,7 @@ public class WorksController {
     public String worksUpdate(@PathVariable Long id, Model model,@LoginUser SessionUser user) {
         if(user != null) {
             model.addAttribute("userName", user.getName());
+            model.addAttribute("picture", user.getPicture());
         }
         WorksResponseDto dto = worksService.findById(id);
         model.addAttribute("post", dto);
